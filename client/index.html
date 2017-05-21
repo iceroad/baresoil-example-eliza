@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ELIZA</title>
+  </head>
+  <body>
+
+    <h1>Eliza</h1>
+
+    <!-- Basic form for user input -->
+    <label for="chat_input">Say something to Eliza:</label>
+    <br>
+    <textarea id="chat_input" rows="3" cols="40" autofocus></textarea>
+    <br>
+    <button onclick="say()">Say</button>
+
+    <!-- Chat transcript -->
+    <div id="chat_window">  </div>
+
+    <!-- Library includes -->
+    <script src="/__bs__/client/BaresoilClient.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
