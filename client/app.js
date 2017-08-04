@@ -5,7 +5,7 @@ var baresoil = new BaresoilClient({
 
 // Listen for the "conversation_history" event from the server.
 baresoil.on('user_event', function(evtName, evtData) {
-  if (evtName === 'conversation_history') {
+  if (evtName === 'addToTranscript') {
     evtData.forEach(function(convItem) {
       addToTranscript(convItem.who, convItem.text);
     });
@@ -40,10 +40,11 @@ function say() {
 // of DOM manipulation.
 function addToTranscript(who, text) {
   var transcript = document.getElementById('chat_window');
-  transcript.innerHTML = [
-    '<div>',
-      '<span>' + who + ': </span>',
+  transcript.innerHTML += [
+    '<div class="chat-message from-' + who + '">',
       '<span>' + text + '</span>',
     '</div>'
-  ].join('') + transcript.innerHTML;
+  ].join('');
+
+  window.scrollTo(0, document.body.scrollHeight);
 }
